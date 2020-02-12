@@ -1,11 +1,13 @@
+<div class="loginForm">
 <p>Авторизация</p>
 <label>Логин</label>
 <p><input type="text" [(ngModel)]='this.username'></p>
-<label>Парроль</label>
+<label>Пароль</label>
 <p><input type="text" [(ngModel)]='this.password'></p>
-<p><button (click)="tryLogin()">Войти</button></p>
-<p><button (click)="registration()">Регистрация</button></p>
-<div class="alert" [hidden]="!this.userService.wait">
+<p><button class="btn btn-primary" (click)="tryLogin()">Войти</button></p>
+<p><button class="btn btn-primary" (click)="registration()">Регистрация</button></p>
+</div>
+<div class="alert alert-danger" [hidden]="!this.userService.wait">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   Неверный логин или пароль!
 </div>

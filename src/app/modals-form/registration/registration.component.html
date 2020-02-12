@@ -1,19 +1,21 @@
+<div class="loginForm">
 <p>Регистрация</p>
 <label>Логин</label>
 <p><input type="text" [(ngModel)]='this.username'></p>
-<label>Парроль</label>
+<label>Пароль</label>
 <p><input type="text" [(ngModel)]='this.password'></p>
 <p><button class="btn btn-outline-primary" (click)="registration()">Зарегистрироваться</button></p>
 <p><button (click)="entry()">Войти</button></p>
-<div class="alert" [hidden]="!this.userService.falseReg">
+</div>
+<div class="alert alert-danger" [hidden]="!this.userService.falseReg">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   Такой пользователь уже существует!
 </div>
-<div class="alert" [hidden]="!this.empty">
+<div class="alert alert-danger" [hidden]="!this.empty">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   Заполните поля!
 </div>
-<div class="alert" [hidden]="!this.userService.succes">
+<div class="alert alert-success" [hidden]="!this.userService.succes">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  Пользователь успещно зарегистрирован!
+  Пользователь успешно зарегистрирован!
 </div>
