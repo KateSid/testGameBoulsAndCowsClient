@@ -1,0 +1,53 @@
+<body>
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Имя пользователя</th>
+    <th scope="col">Игры</th>
+    <th scope="col">Общее количество попыток</th>
+    <th scope="col">Среднее количество попыток за игру</th>
+  </tr>
+  <tbody>
+  <tr>
+    <td> {{this.userService.user.username }}</td>
+    <td>{{this.userService.user.games}}</td>
+    <td>{{this.userService.user.points}}</td>
+    <td>{{this.userService.user.average}}</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+<p><button class="btn btn-outline-primary" (click)="start()">Начать игру</button></p>
+<p><button class="btn btn-outline-primary" (click)="signOut()">Выйти</button></p>
+<div [hidden]="!this.startg">
+<p><input type="number" min="1" max="9" step="1" onkeypress="return false" [(ngModel)]='this.digit1'>
+<input type="number" min="0" max="9" step="1" onkeypress="return false" [(ngModel)]='this.digit2'>
+<input type="number" min="0" max="9" step="1" onkeypress="return false" [(ngModel)]='this.digit3'>
+<input type="number" min="0" max="9" step="1" onkeypress="return false" [(ngModel)]='this.digit4'>
+  <button class="btn btn-outline-primary" (click)="play()">Играть</button></p>
+<div class="alert" [hidden]="!this.eq">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  Числа не должны совпадать!
+</div>
+<body>
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Номер попытки</th>
+    <th scope="col">Число</th>
+    <th scope="col">Быки</th>
+    <th scope="col">Коровы</th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let uA of this.userAttemptService.userAttempts">
+    <td > {{uA.attemptNumb }}</td>
+    <td>{{uA.uNumber}}</td>
+    <td>{{uA.bools}}</td>
+    <td>{{uA.cows}}</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</div>
+<div class="alert" [hidden]="!this.win">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  Вы победили!
+</div>
